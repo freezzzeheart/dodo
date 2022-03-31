@@ -145,6 +145,7 @@ body {
   display: none;
 }
 
+/* =========================================================================== */
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -162,10 +163,11 @@ body {
 }
 .logo__text {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 90px;
-          flex: 0 0 90px;
+      -ms-flex: 0 0 120px;
+          flex: 0 0 120px;
 }
 
+/* =========================================================================== */
 .menu__location {
   padding: 15px 0px;
 }
@@ -180,6 +182,8 @@ body {
 }
 
 .icon-menu {
+  position: relative;
+  background-color: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -190,13 +194,22 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 8px;
-  height: 6px;
-  background-color: inherit;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 13px;
+          flex: 0 0 13px;
+  height: 13px;
 }
-
 .icon-menu span {
-  height: 1px;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1px;
+}
+.icon-menu::before, .icon-menu::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
   background-color: #000;
 }
 
@@ -205,29 +218,26 @@ body {
   z-index: 1;
   display: none;
   background-color: inherit;
-  width: 8px;
-  height: 6px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 13px;
+          flex: 0 0 13px;
+  height: 13px;
 }
-
-.close-icon-menu::before,
-.close-icon-menu::after {
+.close-icon-menu::before, .close-icon-menu::after {
   position: absolute;
-  bottom: 50%;
+  top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   left: 0;
-  width: 100%;
   content: "";
   background-color: #fff;
+  width: 100%;
   height: 1px;
-  display: block;
 }
-
 .close-icon-menu::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-
 .close-icon-menu::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -248,6 +258,7 @@ body {
   display: block;
 }
 
+/* =========================================================================== */
 .location-menu {
   position: relative;
   display: -webkit-box;
@@ -261,14 +272,10 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-right: 5px;
+  margin: 0px 5px 0px 0px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 25px;
           flex: 0 0 25px;
-}
-.location-menu__icon img {
-  width: 15px;
-  height: 15px;
 }
 .location-menu::before, .location-menu::after {
   content: "";
@@ -287,11 +294,12 @@ body {
   width: 100vw;
 }
 .location-menu__city {
-  font-size: 11px;
+  font-size: 15px;
   margin-bottom: 3px;
 }
 .location-menu__btn {
-  font-size: 8px;
+  cursor: pointer;
+  font-size: 10px;
   font-weight: 400;
   color: #888;
 }
@@ -305,7 +313,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  font-size: 11px;
+  font-size: 15px;
 }
 .grade-menu::after {
   content: "";
@@ -334,14 +342,142 @@ body {
   margin-right: 5px;
 }
 .grade-menu__value svg {
-  width: 11px;
-  height: 11px;
+  width: 15px;
+  height: 15px;
+}
+.grade-menu__info {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+.grade-menu__info img {
+  width: 100%;
+  height: auto;
+}
+
+/* =========================================================================== */
+.info {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.info__body {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 15px;
+          flex: 0 1 15px;
+  height: 15px;
+}
+.info:hover {
+  background-color: #888;
+}
+.info-popup {
+  display: none;
+  position: absolute;
+  bottom: -302%;
+  left: 0;
+  width: 90%;
+  min-height: 100%;
+  z-index: 5;
+  background-color: #333;
+  border-radius: 10px;
+}
+.info-popup.snow {
+  display: block;
+}
+.info-popup::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 20px;
+  height: 10px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #333;
+}
+.info-popup__close {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  z-index: 1;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.info-popup__close-icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 6px;
+          flex: 0 0 6px;
+  height: 6px;
+  display: block;
+  position: relative;
+}
+.info-popup__close-icon::before, .info-popup__close-icon::after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+  content: "";
+  background-color: #fff;
+  width: 100%;
+  height: 1px;
+}
+.info-popup__close-icon::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.info-popup__close-icon::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.info-popup__body {
+  padding: 10px;
+}
+.info-popup__title {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+.info-popup__title_yellow {
+  color: #ffd200;
+}
+.info-popup__subtitle {
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+.info-popup__text {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 6px;
+}
+.info-popup__text_sm {
+  font-size: 8px;
 }
 
 /* =========================================================================== */
 .nav-menu {
   position: relative;
-  font-size: 11px;
+  font-size: 15px;
 }
 .nav-menu::after {
   content: "";
@@ -387,23 +523,19 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-right: 5px;
+  margin: 0px 5px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 25px;
-          flex: 0 0 25px;
-}
-.contact__icon img {
-  width: 15px;
-  height: 15px;
+      -ms-flex: 0 0 15px;
+          flex: 0 0 15px;
 }
 .contact__number {
   display: block;
-  font-size: 11px;
+  font-size: 15px;
   color: #fff;
   margin-bottom: 3px;
 }
 .contact__description {
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 400;
   color: #888;
 }
